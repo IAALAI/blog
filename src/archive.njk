@@ -1,0 +1,10 @@
+---
+layout: home.njk
+pagination:
+    data: collections.posts
+    size: 10
+    alias: value
+permalink: "/archive/{{pagination.pageNumber + 1}}.html"
+---
+
+{{ value }}

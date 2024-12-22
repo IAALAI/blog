@@ -1,0 +1,80 @@
+<header>
+    <nav>
+        <a href="/">
+            <div class="site_name">
+                <h1 style="color: #7ee777;">IAALAI的博客</h1>
+            </div>
+        </a>
+        <ul class="menu">
+            <li>
+                <a href="/search"><div>搜索</div></a>
+            </li>
+            <li>
+                <div><a href="/categories">分类</a></div>
+            </li>
+            <li>
+                <div><a href="/tags">标签</a></div>
+            </li>
+            <li>
+                <div><a href="/archive">归档</a></div>
+            </li>
+            <li>
+                <div><a href="/about">关于</a></div>
+            </li>
+        </ul>
+    </nav>
+    <div class="progress">
+        <div id="progress"></div>
+    </div>
+
+    <style>
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 36px;
+            background-color: #00000000;
+
+            & h1 {
+                padding: 0 12px;
+            }
+
+            & ul {
+                display: flex;
+                gap: 2em;
+
+                >li {
+                    flex: 1;
+
+                    /* font-size: 14px; */
+                    & div {
+                        padding: 12px
+                    }
+                }
+            }
+
+            ;
+
+        }
+
+        .progress {
+            position: fixed;
+            height: 3px;
+            width: 100vw;
+            background-color: #00000000;
+
+            >div {
+                height: 100%;
+                width: 0;
+                background-color: #7ee777;
+            }
+        }
+    </style>
+
+    <script async>
+        window.addEventListener("scroll", () => {
+            const progress = document.getElementById("progress");
+            progress.style.width = `${(window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100}%`;
+        });
+    </script>
+</header>

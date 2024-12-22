@@ -1,0 +1,10 @@
+---
+layout: "home.njk"
+pagination:
+    data: categories.content
+    size: 1
+    alias: value
+permalink: "/categories/{{value.title}}.html"
+---
+<h1>{{value.title}}</h1>
+

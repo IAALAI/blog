@@ -1,0 +1,21 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    background: #333;
+    color: white;
+    font-family: "Consolas", "Open Sans","PingFang SC","Hiragino Sans GB","Microsoft Yahei","WenQuanYi Micro Hei","Segoe UI Emoji","Segoe UI Symbol",Helvetica,Arial,-apple-system,system-ui,sans-serif;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+ul,
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}

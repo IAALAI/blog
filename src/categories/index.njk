@@ -1,0 +1,13 @@
+---
+layout: "home.njk"
+---
+<h1>分类</h1>
+
+{% for item in categories.content %}
+    <li>
+        <a href="/categories/{{ item.title }}">
+            <div class="title">{{ item.title }}</div>
+            <div class="desc">{{ item.description }}</div>
+        </a>
+    </li>
+{% endfor %}

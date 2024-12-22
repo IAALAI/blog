@@ -1,0 +1,121 @@
+<footer>
+    <div id="footer">
+        <div class="left">
+            <div>© 2024 - 2025,by iaalai</div>
+            <div class="pages_count" title="other pages: {{ collections.all.length - collections.posts.length }}">total
+                posts: {{ collections.posts.length }}</div>
+            <div>this page visits: <span class="pv">--</span></div>
+            <div>site unique views: <span class="uv">--</span></div>
+            <div>last Update: {{ collections.all[collections.all.length - 1].page.date.toISOString() }}</div>
+            <div class="up_time">Up time: </div>
+        </div>
+        <div class="right">
+            <div class="powerby">
+                <span>power by</span>
+                <ul>
+                    <li>
+                        <a href="//www.11ty.dev/">11ty</a>
+                    </li>
+                    <li>
+                        <a href="//www.cloudflare.com">
+                            cloudflare
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="linkInfo">
+                <div>
+                    <a href="/sitemap.xml">sitemap</a>
+                </div>
+                <div>
+                    <a>links</a>
+                </div>
+                <div>
+                    <a href="mailto://iaalai@iaalai.cn">contact me</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script async>
+    // 数据汇报统计与展示
+    const create_date = new Date(`{{site.start_date}}`);
+    const up_time = document.querySelector(".up_time");
+    setInterval(() => {
+        const current_time = new Date();
+        const diff = current_time - create_date;
+        up_time.innerHTML = `Up time: 
+            ${Math.floor(diff / (1000 * 60 * 60 * 24))}days,
+            ${Math.floor((diff / (1000 * 60 * 60)) % 24)} hours,
+            ${Math.floor((diff / (1000 * 60)) % 60)} minutes,
+            ${Math.floor((diff / 1000) % 60)} seconds`;
+    }, 1000);
+</script>
+
+<style>
+    footer {
+        background-color: #222;
+
+        #footer {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 24px 0;
+            display: flex;
+
+            & div {
+                flex: 1;
+
+                & div {
+                    line-height: 1.5;
+                }
+            }
+
+            .right {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                & .powerby {
+                    display: flex;
+                    align-items: center;
+                    flex: 1;
+                    gap: 20px;
+
+                    &>div {
+                        flex: 0 0 auto;
+                        margin-right: 10px;
+                    }
+
+                    & ul {
+                        flex: 1;
+                        display: flex;
+                        gap: 10px;
+                        list-style-type: none;
+                        margin: 0;
+                        padding: 0;
+
+                        & li {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+
+                & .linkInfo {
+                    display: flex;
+                    align-items: center;
+                    flex: 0 0 auto;
+
+                    &>div {
+                        flex: 1;
+                        &>a {
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+</style>

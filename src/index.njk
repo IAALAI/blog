@@ -1,0 +1,16 @@
+---
+layout: home.njk
+---
+<h1 style="display: none;">欢迎来到我的博客!!!</h1>
+新一代博客准备启动了正在开发中
+这种整个博客所有部分都是全部手写的了
+
+{%- for item in collections.posts -%}
+<a href="{{ item.page.url }}">
+<div>
+{{ item.data.title }}
+</div>
+</a>
+
+{%- endfor -%}
+

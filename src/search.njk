@@ -1,0 +1,9 @@
+---
+layout: base.njk
+permalink: search.html
+---
+<link rel="preload" href="/assets/search.json" as="fetch">
+
+<script async type="module">
+fetch("/assets/search.json").then(res => res.json()).then(data => console.log(data));
+</script>

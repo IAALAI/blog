@@ -1,0 +1,20 @@
+---
+layout: base.njk
+---
+
+<div>
+    <aside>
+        
+    </aside>
+    <main>
+        <div>文章创建时间: {{ date | datep }} || 最后更新时间: {{ last | datep }}</div>
+        <div>文章总字数: {{ content | text | size }},预计阅读时间需要: {{ content | text | size / 100 }} 分钟</div>
+        <div>
+            {{ content | safe }}
+        </div>
+    </main>
+</div>
+
+<style>
+
+</style>

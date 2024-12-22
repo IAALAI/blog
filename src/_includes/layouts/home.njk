@@ -1,0 +1,147 @@
+---
+layout: "base.njk"
+---
+
+<div id="body">
+    <aside>
+        <div id="base_info">
+            <a href="/" style="display: flex;">
+                <img class="favicon" src="/assets/image/small.avif" alt="logo">
+            </a>
+            <a href="/about">
+                <h1 class="name" style="color: #7ee777;font-size: 2;">IAALAI</h1>
+            </a>
+            <h4 class="desc">我的 blog ,随便记录一点什么吧</h4>
+            <ul>
+                <li>
+                    <a href="/archive">
+                        <div>文章</div>
+                        <div>{{ collections.posts.length }}</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/categories">
+                        <div>分类</div>
+                        <div>{{ categories.items.length }}</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="/tags">
+                        <div>标签</div>
+                        <div>{{ tags.length }}</div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="findme">
+                <li>github</li>
+                <li>email</li>
+            </ul>
+        </div>
+        <div class="block_info">
+            <a href="/categories">
+                <div class="title">
+                    <div class="name">分类</div>
+                    <div class="desc">点击查看全部分类</div>
+                </div>
+            </a>
+
+        </div>
+        <div class="block_info">
+            <div class="title">标签</div>
+        </div>
+        <div class="block_info">
+            <div class="title">归档</div>
+        </div>
+    </aside>
+    <main>
+        {{ content | safe }}
+    </main>
+</div>
+
+<style>
+    #body {
+        padding: 24px;
+        display: flex;
+        gap: 12px;
+
+        & aside {
+            width: 40%;
+            max-width: 1000px;
+            min-width: 400px;
+            gap: 20px;
+            display: flex;
+            flex-direction: column;
+
+            >div {
+                padding: 24px 0;
+                background-color: #222;
+                border-radius: 15px;
+            }
+
+            & #base_info {
+                .favicon {
+                    height: 128px;
+                    width: 128px;
+                    border-radius: 50%;
+                    margin: 0 auto;
+                }
+
+                .name {
+                    text-align: center;
+                }
+
+                .desc {
+                    text-align: center;
+                    color: #ccc;
+                }
+
+                & ul {
+                    display: flex;
+                    justify-content: center;
+
+                    >li {
+                        flex: 1;
+                        text-align: center;
+
+                        & a >div {
+                            padding-bottom: 18px;
+                        }
+
+                        & a >div:first-child {
+                            font-size: 1.2em;
+                        }
+
+                        & a >div:last-child {
+                            font-size: 1.5em;
+                        }
+                    }
+                }
+            }
+
+            .block_info {
+                padding: 24px;
+
+                .title {
+                    display: flex;
+                    justify-content: space-between;
+
+                    .name {
+                        font-size: 1.5em;
+                    }
+
+                    .desc {
+                        text-align: center;
+                        color: #ccc;
+                    }
+                }
+            }
+        }
+
+        & main {
+            flex: 1;
+            padding: 24px 12px;
+            background-color: #222;
+            border-radius: 15px;
+        }
+    }
+</style>
