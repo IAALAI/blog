@@ -43,7 +43,7 @@
     // 数据汇报统计与展示
     const create_date = new Date(`{{site.start_date}}`);
     const up_time = document.querySelector(".up_time");
-    setInterval(() => {
+    function update_up_time() {
         const current_time = new Date();
         const diff = current_time - create_date;
         up_time.innerHTML = `Up time: 
@@ -51,7 +51,19 @@
             ${Math.floor((diff / (1000 * 60 * 60)) % 24)} hours,
             ${Math.floor((diff / (1000 * 60)) % 60)} minutes,
             ${Math.floor((diff / 1000) % 60)} seconds`;
-    }, 1000);
+    }
+    update_up_time();
+    let update_Interval = null;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                update_Interval = setInterval(update_up_time, 1000);
+                update_up_time();
+            } else {
+                if (update_Interval) clearInterval(update_Interval);
+            }
+        })
+    }).observe(up_time);
 </script>
 
 <style>
@@ -110,6 +122,7 @@
 
                     &>div {
                         flex: 1;
+
                         &>a {
                             margin-right: 10px;
                         }
