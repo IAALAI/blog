@@ -1,39 +1,34 @@
 ---
 title: "代码展示效果优化"
 description: "优化此博客的代码展示效果"
-slug: code-trim
-date: 2024-05-28
+date: 2025-01-03
 image:
 categories:
     - blog
 tags:
-    - todo
 ---
 
-这个 hugo 不支持类似于 vitepress 的引入外部代码,
-因此决定手动为其开发出一个功能类似的来
+将博客的代码展示替换为 `Monaco Editor`
 
-``` markdown
-<<< ./a.js
+就像是这样:
+
+``` javascript
+// 我是注释
+console.log("Hello Wolrd");
 ```
 
-## 实现方案
+``` typescript
+function DestinationCard() {
+    alert('Hello DestinationCard!');
+}
+```
 
-`hugo` 支持一种叫 `shortcode` 的功能,所以这里基于 `shortcode` 来实现这个功能
+`Monaco Editor` 本身作为一个前端库使用还是比较简单的,这里借助了强大的 jsdelivr 的ESM直接一个import就搞定了
 
-## 将博客的代码展示替换为 `Monaco Editor`
+使用也是非常的比较简单,只需要简单的传入各个属性就可以完成工作
 
-感觉hugo内置的代码展示功能效果一般,而且不能引入外部的代码文件,因此在次进行一点点提升
+除了初始化的时候需要稍微注意一下尺寸其他的也没有什么额外的问题了
 
-这里的内容参考了 `vitepress` 中的功能,以及 `vitepress` 中的 `Monaco Editor` 的使用,还有 `Monaco Editor`
+特别的是,我在使用的时候把尝试把我自己的vscode里面的配色方案导入进来了,如果有机会的话以后考虑把我的配送方案也发个npm吧,这个把vscode配色转换成monaco配色的过程还是值得说道说道的
 
-## a
-
-大赞 Monaco Editor
-
-<!-- https://vitepress.dev/zh/guide/markdown#advanced-configuration -->
-<!-- https://hugo-in-action.foofun.cn/zh/docs/part1/chapter4/5/ -->
-<!-- https://hugo.opendocs.io/templates/shortcode-templates/ -->
-<!-- https://gohugo.io/templates/output-formats/ -->
-
-todo
+目前还有问题,不知道是不是没有正确的导入LSP的原因,现在看大部分代码都是缺少对应的颜色之类的.回头有机会在想办法把它补齐吧

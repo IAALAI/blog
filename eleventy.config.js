@@ -3,12 +3,12 @@ import fs from "fs";
 const month_p = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 const days_p = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
+/** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({ "public" : "/"});
     eleventyConfig.addPassthroughCopy("post/*.jpg");
     eleventyConfig.addPassthroughCopy("post/*.png");
     eleventyConfig.addPassthroughCopy("post/*.avif");
-
 
     const _posts_ = [],_tags_ = []
 
@@ -22,7 +22,6 @@ export default function (eleventyConfig) {
     eleventyConfig.addCollection("posts", async (collectionsApi) => {
         const posts = collectionsApi.getAll().filter(value => value.filePathStem.indexOf("/post/") == 0);
         _posts_.length = 0
-        _tags_.length = 0
         const tagSet = new Set();
         for(let i = 0; i < posts.length; i++) {
             if (posts[i].data.tags) {
@@ -36,6 +35,7 @@ export default function (eleventyConfig) {
                 raw: posts[i].rawInput
             })
         }
+        _tags_.length = 0
         _tags_.push(...tagSet);
         fs.writeFileSync("./dist/assets/search.json", JSON.stringify(_posts_, null, 0), 'utf-8');
         return posts;

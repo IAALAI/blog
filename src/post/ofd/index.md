@@ -7,8 +7,8 @@ image:
 categories:
     - none
 tags:
-    - none
     - todo
+draft: true
 ---
 
 最近遇到了一个工作上的问题.最近在工作的时候遇到了一个叫ofd的东西,信创出来的新需求

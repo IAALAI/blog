@@ -55,7 +55,11 @@ layout: "base.njk"
                 </div>
             </a>
             <div>
-
+                {% for item in tags %}
+                    <a href="/tags/{{item.title}}.html">
+                        <span>{{item}}</span>
+                    </a>
+                {% endfor %}
             </div>
         </div>
         <div class="block_info">

@@ -74,7 +74,7 @@
             progress.style.width = `${(window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100}%`;
         });
         document.querySelectorAll(".menu>li>a").forEach(item => {
-            if (!location.href.indexOf(item.href)) {
+            if (location.href.startsWith(item.href)) {
                 item.classList.add("active")
             }
         })
