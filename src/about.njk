@@ -1,5 +1,35 @@
 ---
 layout: base.njk
 ---
-<h1>关于 IAALAI </h1>
-<h2 style="display: none;">正在努力成为一个强大的前端开发!</h2>
+<main>
+    <h1>关于我 </h1>
+    <h2>我是 IAALAI, 普通的前端开发...</h2>
+    <div>
+        你可以在以下平台中找到我:
+    </div>
+    <ul class="findme">
+        <li>
+            <a href="//github.com/iaalai">
+                <img src="/assets/image/github.svg" alt="github">
+            </a>
+        </li>
+        <li>
+            <a href="mailto:iaalai@iaalai.cn">
+                <img src="/assets/image/mail.svg" alt="mail">
+            </a>
+        </li>
+    </ul>
+</main>
+
+<style>
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .findme {
+        display: flex;
+        gap: 1em;
+    }
+</style>

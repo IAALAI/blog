@@ -1,4 +1,5 @@
 <header>
+    <div class="progress"><div id="progress"></div></div>
     <nav>
         <a href="/">
             <div class="site_name">
@@ -10,51 +11,47 @@
                 <a href="/search"><div>搜索</div></a>
             </li>
             <li>
-                <div><a href="/categories">分类</a></div>
+                <a href="/categories"><div>分类</div></a>
             </li>
             <li>
-                <div><a href="/tags">标签</a></div>
+                <a href="/tags"><div>标签</div></a>
             </li>
             <li>
-                <div><a href="/archive">归档</a></div>
+                <a href="/archive"><div>归档</div></a>
             </li>
             <li>
-                <div><a href="/about">关于</a></div>
+                <a href="/about"><div>关于</div></a>
             </li>
         </ul>
     </nav>
-    <div class="progress">
-        <div id="progress"></div>
-    </div>
 
     <style>
         nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 36px;
-            background-color: #00000000;
-
+            padding: 1em 36px;
+            background-color: #333;
             & h1 {
                 padding: 0 12px;
             }
-
             & ul {
                 display: flex;
                 gap: 2em;
-
                 >li {
                     flex: 1;
-
-                    /* font-size: 14px; */
                     & div {
-                        padding: 12px
+                        padding: 12px;
+                        color: #ccc;
+                    }
+                    & div:hover {
+                        color: #7ee777;
+                    }
+                    & .active > div {
+                        color: white;
                     }
                 }
             }
-
-            ;
-
         }
 
         .progress {
@@ -76,5 +73,10 @@
             const progress = document.getElementById("progress");
             progress.style.width = `${(window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100}%`;
         });
+        document.querySelectorAll(".menu>li>a").forEach(item => {
+            if (!location.href.indexOf(item.href)) {
+                item.classList.add("active")
+            }
+        })
     </script>
 </header>

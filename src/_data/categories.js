@@ -13,7 +13,4 @@ for (let i = 0; i < category_title.length; i++) {
     items_content.push(JSON.parse(fs.readFileSync(`./src/categories/${category_title[i]}`)))
 }
 
-export default {
-    title: category_title,
-    content: items_content
-}
+export default items_content

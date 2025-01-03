@@ -4,6 +4,14 @@ const month_p = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", 
 const days_p = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
 export default function (eleventyConfig) {
+    eleventyConfig.addPassthroughCopy({ "public" : "/"});
+    eleventyConfig.addPassthroughCopy("post/*.jpg");
+    eleventyConfig.addPassthroughCopy("post/*.png");
+    eleventyConfig.addPassthroughCopy("post/*.avif");
+
+
+    const _posts_ = [],_tags_ = []
+
     eleventyConfig.addPreprocessor("drafts", "md", (data, content) => {
 		if(data.draft || data.hidden) {
 			return false;
@@ -11,12 +19,6 @@ export default function (eleventyConfig) {
         data.last = fs.statSync(data.page.inputPath).mtime; 
 	});
   
-    eleventyConfig.addPassthroughCopy({ "public" : "/"});
-    eleventyConfig.addPassthroughCopy("post/*.jpg");
-    eleventyConfig.addPassthroughCopy("post/*.png");
-    eleventyConfig.addPassthroughCopy("post/*.avif");
-    const _posts_ = [],_tags_ = []
-
     eleventyConfig.addCollection("posts", async (collectionsApi) => {
         const posts = collectionsApi.getAll().filter(value => value.filePathStem.indexOf("/post/") == 0);
         _posts_.length = 0
