@@ -4,8 +4,8 @@
             <div>© 2024 - 2025,by iaalai</div>
             <div class="pages_count" title="other pages: {{ collections.all.length - collections.posts.length }}">total
                 posts: {{ collections.posts.length }}</div>
-            <div>this page visits: <span class="pv">--</span></div>
-            <div>site unique views: <span class="uv">--</span></div>
+            <div>this page views: <span class="pv">--</span></div>
+            <div>site unique visits: <span class="uv">--</span></div>
             <div>last Update: {{ collections.all[collections.all.length - 1].page.date.toISOString() }}</div>
             <div class="up_time">Up time: </div>
         </div>
@@ -13,14 +13,8 @@
             <div class="powerby">
                 <span>power by</span>
                 <ul>
-                    <li>
-                        <a href="//www.11ty.dev/">11ty</a>
-                    </li>
-                    <li>
-                        <a href="//www.cloudflare.com">
-                            cloudflare
-                        </a>
-                    </li>
+                    <li><a href="//www.11ty.dev/"><img src="/assets/image/11ty.svg" alt="11ty"></a></li>
+                    <li><a href="//www.cloudflare.com"><img src="/assets/image/cloudflare.svg" alt="cloudflare"></a></li>
                 </ul>
             </div>
             <div class="linkInfo">
@@ -31,40 +25,33 @@
                     <a href="/links.html">links</a>
                 </div>
                 <div>
-                    <a href="mailto://iaalai@iaalai.cn">contact me</a>
+                    <a href="mailto://iaalai@iaalai.cn">contact</a>
                 </div>
-
             </div>
         </div>
     </div>
 </footer>
 
 <script async>
-    // 数据汇报统计与展示
-    const create_date = new Date(`{{site.start_date}}`);
-    const up_time = document.querySelector(".up_time");
-    function update_up_time() {
-        const current_time = new Date();
-        const diff = current_time - create_date;
-        up_time.innerHTML = `Up time: 
-            ${Math.floor(diff / (1000 * 60 * 60 * 24))}days,
-            ${Math.floor((diff / (1000 * 60 * 60)) % 24)} hours,
-            ${Math.floor((diff / (1000 * 60)) % 60)} minutes,
-            ${Math.floor((diff / 1000) % 60)} seconds`;
-    }
-    update_up_time();
-    let update_Interval = null;
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                update_Interval = setInterval(update_up_time, 1000);
-                update_up_time();
-            } else {
-                if (update_Interval) clearInterval(update_Interval);
-            }
-        })
-    }).observe(up_time);
+self.create_date = new Date(`{{site.start_date}}`);
+(async function () {
+let prevReq = localStorage.getItem("prevReq")
+if (!prevReq || new Date() - new Date(prevReq) > 60 * 60 * 1000) {
+    const stats = await (await fetch("{{build.analyzeHost}}/v/{{build.analyzeId}}/stats/")).json();
+    for (const key in stats) localStorage.setItem(key, stats[key].value)
+    const metrics = await (await fetch("{{build.analyzeHost}}/v/{{build.analyzeId}}/metrics/type=url")).json();
+    for (const value of metrics) localStorage.setItem(value.x, value.y)
+    localStorage.setItem("prevReq", new Date())
+} // 提前获取数据
+})().then(() => {
+    if (localStorage[location.pathname] == null) localStorage[location.pathname] = 0
+    document.querySelector(".pv").innerText = localStorage[location.pathname]
+    document.querySelector(".pv").parentElement.title = "site total page view: " + localStorage.pageviews
+    document.querySelector(".uv").innerText = localStorage.visitors
+})
 </script>
+<script async src="{{build.analyzeHost}}/script.js" data-website-id="{{build.analyzeId}}"></script>
+<script defer src="/update.js"></script>
 
 <style>
     footer {
@@ -94,7 +81,6 @@
                     display: flex;
                     align-items: center;
                     flex: 1;
-                    gap: 20px;
 
                     &>div {
                         flex: 0 0 auto;
@@ -104,14 +90,14 @@
                     & ul {
                         flex: 1;
                         display: flex;
-                        gap: 10px;
                         list-style-type: none;
                         margin: 0;
                         padding: 0;
 
-                        & li {
-                            margin-right: 10px;
-                        }
+                            & img {
+                                height: 64px;
+                                width: 144px;
+                            }
                     }
                 }
 

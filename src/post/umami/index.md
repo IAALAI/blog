@@ -1,7 +1,6 @@
 ---
 title: "umami"
 description: "独立部署umami"
-slug: umami-start
 date: 2024-09-23
 image:
 categories:
@@ -18,9 +17,9 @@ tags:
 
 最开始也考虑选择其他的现成的方案,比如 cloudflare-analytics 和 google-analytics
 
-但是 cloudflare 的那个经常捕获不到数据,统计的数值有明显出入
+但是 cloudflare 的那个经常捕获不到数据,统计的数值有明显出入,而且数据也不够可控
 
-google 的方案的话,实在是行不过它
+google 的方案的话,实在是信不过它,而且数据有被当作广告的风险
 
 ## 安装
 
@@ -28,12 +27,14 @@ google 的方案的话,实在是行不过它
 
 然后直接 pnpm 一条龙安排
 
+这里有一个小坑,截至 2025-01-08 它目前仍然是无法使用Bun工作
+
 ``` bash
 git clone git@github.com:umami-software/umami.git -depth=1
 pnpm install && pnpm build
 ```
 
-启动之前,在此目录中创建一个 `.env` ,然后修改对应的数据连接
+启动之前,在此目录中创建一个 `.env` ,然后修改对应的数据连接,这里是使用了supabase的免费数据库
 
 ``` bash
 echo "" > .env
@@ -42,8 +43,27 @@ pnpm start
 
 然后就可以愉快的启动它了
 
-# 备注
+## 备注
 
 此时应该可以在浏览器的 localhost:3000 中看到它了.
 
 随后建议修改掉默认的密码
+
+## 注册为服务
+
+最后一步就是将其注册为服务了
+
+``` shell
+[Unit]
+Description=umami data analytics
+After=network.target
+
+[Service]
+Type=simple
+User=iaalai
+WorkingDirectory=/home/iaalai/project/umami
+ExecStart=pnpm start
+
+[Install]
+WantedBy=multi-user.target
+```

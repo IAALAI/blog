@@ -12,12 +12,12 @@ tags:
 
 就像是这样:
 
-``` javascript
+``` typescript
 // 我是注释
 console.log("Hello Wolrd");
 ```
 
-``` typescript
+``` javascript
 function DestinationCard() {
     alert('Hello DestinationCard!');
 }

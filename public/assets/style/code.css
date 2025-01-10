@@ -1,0 +1,15 @@
+code.monaco {
+    display: block;
+    height: auto;
+    width: 100%;
+
+    &>div {
+        padding-top: 1em;
+    }
+}
+
+code {
+    font-family: inherit;
+    color: burlywood;
+    background: #ffffff30;
+}

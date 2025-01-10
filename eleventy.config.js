@@ -45,6 +45,15 @@ export default function (eleventyConfig) {
     eleventyConfig.addNunjucksFilter("datep", (v) => `${v.getFullYear()}-${v.getMonth() + 1}-${v.getDate()} ${v.getHours()}:${v.getMinutes()} ${days_p[v.getDay()]} ${month_p[v.getMonth()]}`);
     eleventyConfig.addNunjucksFilter("text", (v) => v.replace(/\<.+?\>/g, ""));
     eleventyConfig.addNunjucksFilter("size", (v) => v.length);
+    eleventyConfig.addNunjucksFilter("math", function(source, mode, ...args) {
+        let target = args.indexOf("target");
+        if (target != -1) {
+            args[args.indexOf("temp")] = source
+            return Math[mode](...args);
+        } else {
+            return Math[mode](source, ...args);
+        }
+    });
     
     return {
         dir: {
