@@ -6,7 +6,13 @@ permalink: sitemap.xml
 {% for item in collections.all %}
     <url>
         <loc>{{site.full_host}}{{item.page.url}}</loc>
-        <lastmod>{{item.data.last and item.data.last.toISOString() or build.date.toISOString()}}</lastmod>
+        <lastmod>
+            {% if item and item.data and item.data.last %}
+                {{ item.data.last.toISOString() }}
+            {% else %}
+                {{ build.date.toISOString() }}
+            {% endif %}
+        </lastmod>
     </url>
 {% endfor %}
 </urlset>

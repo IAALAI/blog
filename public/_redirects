@@ -1,2 +1,4 @@
-/*  /error.html 404
-/p/*    /post/:splat    301
+/404.html  /error.html 301
+/p/*  /post/:splat 301
+/post/*.md  /post/:splat.html 301
+/post/*main.html  /post/:splatindex.html  301

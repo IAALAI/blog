@@ -5,11 +5,10 @@ const days_p = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default function (eleventyConfig) {
-    eleventyConfig.addPassthroughCopy({ "public" : "/"});
-    eleventyConfig.addPassthroughCopy("post/*.jpg");
-    eleventyConfig.addPassthroughCopy("post/*.png");
-    eleventyConfig.addPassthroughCopy("post/*.avif");
-
+    eleventyConfig.addPassthroughCopy({
+        "public" : "/",
+        "src/post": "/post"
+    });
     const _posts_ = [],_tags_ = []
 
     eleventyConfig.addPreprocessor("drafts", "md", (data, content) => {
