@@ -10,5 +10,10 @@ permalink: "/archive/{{pagination.pageNumber + 1}}.html"
 <h1>第 {{pagination.pageNumber + 1}} 页</h1>
 
 {% for item in value %}
-    {{ item }}
+<ul>
+    <li>
+        <a href="">{{ item }}
+        </a>
+    </li>
+</ul>
 {% endfor %}

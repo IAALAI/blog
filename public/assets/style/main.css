@@ -10,7 +10,7 @@ body {
 
 a {
     text-decoration: none;
-    color: white;
+    color: inherit;
 }
 
 ul,
@@ -33,4 +33,30 @@ h6 {
 
 img {
     max-width: 100%;
+}
+
+:root {
+    --color_tag0: red;
+    --color_tag1: orangered;
+    --color_tag2: orange;
+    --color_tag3: #FFE700;
+    --color_tag4: yellowgreen;
+    --color_tag5: green;
+    --color_tag6: #30BBAA;
+    --color_tag7: #2980B9;
+    --color_tag8: #4545cd;
+    --color_tag9: rgb(200, 13, 200);
+}
+
+ul.loopColor {
+    & li:nth-child(10n+0) { color: var(--color_tag0);}
+    & li:nth-child(10n+1) { color: var(--color_tag1);}
+    & li:nth-child(10n+2) { color: var(--color_tag2);}
+    & li:nth-child(10n+3) { color: var(--color_tag3);}
+    & li:nth-child(10n+4) { color: var(--color_tag4);}
+    & li:nth-child(10n+5) { color: var(--color_tag5);}
+    & li:nth-child(10n+6) { color: var(--color_tag6);}
+    & li:nth-child(10n+7) { color: var(--color_tag7);}
+    & li:nth-child(10n+8) { color: var(--color_tag8);}
+    & li:nth-child(10n+9) { color: var(--color_tag9);}
 }

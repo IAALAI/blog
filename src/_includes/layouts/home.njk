@@ -28,7 +28,7 @@ layout: "base.njk"
                 <li>
                     <a href="/tags">
                         <div>标签</div>
-                        <div>{{ tags.length }}</div>
+                        <div>{{ collections.tags.length }}</div>
                     </a>
                 </li>
             </ul>
@@ -40,11 +40,11 @@ layout: "base.njk"
                     <div class="desc">点击查看全部分类</div>
                 </div>
             </a>
-            <ul>
+            <ul class="categories">
                 {% for item in categories %}
-                    <a href="/categories/{{item.title}}.html">
-                    <li>{{item.title}}</li>
-                    </a>
+                <li>
+                    <a href="/categories/{{item.title}}.html">{{item.title}}</a>
+                </li>
                 {% endfor %}
             </ul>
         </div>
@@ -52,15 +52,18 @@ layout: "base.njk"
             <a href="/tags">
                 <div class="title">
                     <div class="name">标签</div>
+                    <div class="desc">点击查看全部标签</div>
                 </div>
             </a>
-            <div>
-                {% for item in tags %}
-                    <a href="/tags/{{item.title}}.html">
-                        <span>{{item}}</span>
+            <ul class="tags loopColor">
+                {% for item in collections.tags %}
+                <li>
+                    <a href="/tags/{{item.key}}.html">
+                        <span>{{item.key}}</span>
                     </a>
+                </li>
                 {% endfor %}
-            </div>
+            </ul>
         </div>
         <div class="block_info">
             <a href="/archive">
@@ -133,6 +136,8 @@ layout: "base.njk"
                         }
                     }
                 }
+
+
             }
 
             .block_info {
@@ -157,8 +162,33 @@ layout: "base.njk"
                     display: flex;
                     flex-direction: column;
                     gap: 10px;
-                    & a:hover {
+                    & li {
+                        padding: 8px 0 8px 0;
+                    }
+                    & li:hover {
                         color: #7ee777;
+                        background-color: #66666666;
+                    }
+                }
+
+                ul.categories {
+                    & li {
+                        padding-left: 10px;
+                    }
+                }
+
+                ul.tags.loopColor {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 0;
+                    /* justify-content: space-around; */
+                    & > li {
+                        min-width: calc(33% - 20px);
+                        text-align: center;
+                    }
+                    & > li:hover {
+                        transition: transform 0.3s ease;
+                        transform: scale(1.2);
                     }
                 }
             }

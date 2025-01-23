@@ -31,28 +31,11 @@
         </div>
     </div>
 </footer>
-
-<script async>
-self.create_date = new Date(`{{site.start_date}}`);
-(async function () {
-let prevReq = localStorage.getItem("prevReq")
-if (!prevReq || new Date() - new Date(prevReq) > 60 * 60 * 1000) {
-    const stats = await (await fetch("{{build.analyzeHost}}/v/{{build.analyzeId}}/stats/")).json();
-    for (const key in stats) localStorage.setItem(key, stats[key].value)
-    const metrics = await (await fetch("{{build.analyzeHost}}/v/{{build.analyzeId}}/metrics/type=url")).json();
-    for (const value of metrics) localStorage.setItem(value.x, value.y)
-    localStorage.setItem("prevReq", new Date())
-} // 提前获取数据
-})().then(() => {
-    if (localStorage[location.pathname] == null) localStorage[location.pathname] = 0
-    document.querySelector(".pv").innerText = localStorage[location.pathname]
-    document.querySelector(".pv").parentElement.title = "site total page view: " + localStorage.pageviews
-    document.querySelector(".uv").innerText = localStorage.visitors
-})
-</script>
+<script async src="/script/analytics.js"></script>
+{% if analytics != false %}
 <script async src="{{build.analyzeHost}}/script.js" data-website-id="{{build.analyzeId}}"></script>
-<script defer src="/update.js"></script>
-
+{% endif %}
+<script defer src="/script/update.js"></script>
 <style>
     footer {
         background-color: #222;

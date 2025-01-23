@@ -1,6 +1,21 @@
 ---
 layout: home.njk
+pagination:
+    data: collections.tags
+    size: 1
+    alias: tag
+permalink: "/tags/{{tag.key}}.html"
 ---
 <div>
 单独某一个 tag 的信息
 </div>
+
+<h2> {{ tag.key }} </h2>
+
+<ul class="loopColor">
+    {% for item in collections[tag.key] %}
+        <li>
+            <a href="{{item.data.page.url}}">{{item.data.title}}</a>
+        </li>
+    {% endfor %}
+</ul>
