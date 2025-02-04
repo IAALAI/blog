@@ -4,7 +4,7 @@ description: 将性能较差的VPS切换为alpine,提高使用体验
 date: 2024-05-15T11:28:00+08:00
 image:
 categories:
-    - vps
+    - tvbox
 tags:
     - alpine
     - grub

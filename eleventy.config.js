@@ -34,8 +34,6 @@ export default function (eleventyConfig) {
     eleventyConfig.addCollection("archive",(collectionsApi) => {
         const posts = collectionsApi.getAll().filter(value => value.filePathStem.indexOf("/post/") == 0),_archives_ = {};
         for (let i = 0; i < posts.length; i++) {
-            let a = posts[i].data.categories
-
             if (!_archives_[posts[i].date.getFullYear()]) _archives_[posts[i].date.getFullYear()] = [];
             if (!_archives_[posts[i].date.getFullYear()][posts[i].date.getMonth()]) 
                 _archives_[posts[i].date.getFullYear()][posts[i].date.getMonth()] = [];
@@ -68,6 +66,16 @@ export default function (eleventyConfig) {
             })
         }
         return tags
+    });
+    eleventyConfig.addCollection("cetegories",(collectionsApi) => {
+        const posts = collectionsApi.getAll().filter(value => value.filePathStem.indexOf("/post/") == 0),
+            cetegories = {};
+        for (let i = 0; i < posts.length; i++) {
+            if (posts[i].data) {
+                console.log(posts[i].data)
+            }
+        }
+        return cetegories
     });
     eleventyConfig.addNunjucksFilter("json", (v) => JSON.stringify(v));
     eleventyConfig.addNunjucksFilter("text", (v) => v.replace(/\<.+?\>/g, ""));
