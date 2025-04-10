@@ -6,12 +6,12 @@
                 posts: {{ collections.posts.length }}</div>
             <div>this page views: <span class="pv">--</span></div>
             <div>site unique visits: <span class="uv">--</span></div>
-            <div>last Update: {{ collections.all[collections.all.length - 1].page.date.toISOString() }}</div>
+            <div class="last_up">last Update: </div>
             <div class="up_time">Up time: </div>
         </div>
         <div class="right">
             <div class="powerby">
-                <span>power by</span>
+                <span>Powered by</span>
                 <ul>
                     <li><a href="//www.11ty.dev/"><img src="/assets/image/11ty.svg" alt="11ty"></a></li>
                     <li><a href="//www.cloudflare.com"><img src="/assets/image/cloudflare.svg" alt="cloudflare"></a></li>
@@ -35,7 +35,10 @@
 {% if analytics != false %}
 <script async src="{{build.analyzeHost}}/script.js" data-website-id="{{build.analyzeId}}"></script>
 {% endif %}
-<script defer src="/script/update.js"></script>
+<script defer>
+document.querySelector(".last_up").innerHTML = `last Update: ${new Date(`{{build.date.toISOString()}}`).toLocaleString()}`;
+document.querySelector(".up_time").innerHTML = `Up time: ${Math.floor( (new Date() - new Date(`{{site.start_date}}`)) / 1000 / (60 * 60 * 24))}days`;
+</script>
 <style>
     footer {
         background-color: #222;

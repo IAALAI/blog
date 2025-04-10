@@ -4,8 +4,7 @@ description: Hyperscan in Go
 slug: hyperscan_in_go
 date: 2024-04-23
 image:
-categories:
-    - none
+category: 
 tags:
     - hyperscan
     - golang

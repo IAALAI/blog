@@ -1,16 +1,32 @@
 ---
 layout: home.njk
+description: iaalai的博客,随便记录一点看到的东西吧.快来看看都有什么东西吧.一个普通的程序员,主力是前端,但是对于其他领域也稍有了解,是一个动漫爱好者.
 ---
-<h1 style="display: none;">欢迎来到我的博客!!!</h1>
-新一代博客准备启动了正在开发中
-这种整个博客所有部分都是全部手写的了
+<main>
+    <h1>欢迎来到我的博客!!!</h1>
+    <div>目前这个博客还处于开发中,仍处于启动阶段</div>
+    <div>现在是基于11ty,基本上大部分内容都是手写实现了</div>
 
-{% for item in collections.posts %}
-<a href="{{ item.page.url }}">
-<div>
-{{ item.data.title }}
-</div>
-</a>
+    <h2>近期内容</h2>
+    {% for item in collections.posts.splice(-5).reverse() %}
+    <a href="{{ item.page.url }}" style="display: flex;justify-content: space-between;">
+        <div title="{{ item.data.description }}">
+            {{ item.data.title }}
+        </div>
+        <div>
+            {{ item.data.date | datep }}
+        </div>
+    </a>
 
-{% endfor %}
+    {% endfor %}
 
+
+</main>
+
+<style>
+    main {
+        & * {
+            line-height: 2;
+        }
+    }
+</style>

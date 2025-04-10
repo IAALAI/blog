@@ -7,6 +7,7 @@ const days_p = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({
         "public" : "/",
+
         "src/post": "/post"
     });
     eleventyConfig.addPreprocessor("drafts", "md", (data, content) => {
@@ -32,21 +33,23 @@ export default function (eleventyConfig) {
         return posts;
     });
     eleventyConfig.addCollection("archive",(collectionsApi) => {
-        const posts = collectionsApi.getAll().filter(value => value.filePathStem.indexOf("/post/") == 0),_archives_ = {};
+        const posts = collectionsApi.getAll().filter(value => value.filePathStem.indexOf("/post/") == 0),_archive_ = {};
         for (let i = 0; i < posts.length; i++) {
-            if (!_archives_[posts[i].date.getFullYear()]) _archives_[posts[i].date.getFullYear()] = [];
-            if (!_archives_[posts[i].date.getFullYear()][posts[i].date.getMonth()]) 
-                _archives_[posts[i].date.getFullYear()][posts[i].date.getMonth()] = [];
-            _archives_[posts[i].date.getFullYear()][posts[i].date.getMonth()].push(posts[i])
+            const d = posts[i].date.getFullYear() * 12 + (posts[i].date.getMonth() + 1);
+            if (!_archive_[d]) _archive_[d] = [];
+            _archive_[d].push(posts[i])
         }
-        const archives = [];
-        for (const key in _archives_) {
-            archives.push({
-                key,
-                value: _archives_[key]
+        
+        const archive = [];
+        for (const key in _archive_) {
+            archive.push({
+                key: key,
+                year: Math.floor(key / 12),
+                month: key % 12,
+                value: _archive_[key]
             })
         }
-        return archives
+        return archive;
     });
     eleventyConfig.addCollection("tags",(collectionsApi) => {
         const posts = collectionsApi.getAll().filter(value => value.filePathStem.indexOf("/post/") == 0),_tags_ = {};
@@ -70,10 +73,10 @@ export default function (eleventyConfig) {
     eleventyConfig.addCollection("cetegories",(collectionsApi) => {
         const posts = collectionsApi.getAll().filter(value => value.filePathStem.indexOf("/post/") == 0),
             cetegories = {};
-        for (let i = 0; i < posts.length; i++) {
-            if (posts[i].data) {
-                console.log(posts[i].data)
-            }
+        for (const v of posts) {
+            v.data.category = v.data.category || "none";
+            if (!cetegories[v.data.category]) cetegories[v.data.category] = [];
+            cetegories[v.data.category].push(v)
         }
         return cetegories
     });

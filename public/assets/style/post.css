@@ -1,0 +1,28 @@
+.post {
+    display: flex;
+
+    & aside {
+        /* width: 40%; */
+    }
+
+    & main {
+        width: 80%;
+        /* height: 14000px; */
+        margin: 0 auto;
+
+        & .info {
+            line-height: 2;
+            color: #FFFFFFA0;
+        }
+        a {
+            color: burlywood;
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            padding: 0 0 0 0;
+        }
+    }
+}
+
+h1 {
+    font-size: 2.5em;
+}

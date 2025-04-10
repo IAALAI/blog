@@ -4,8 +4,7 @@ description: 在alpine中编译neovim
 slug: neovim-for-alpine
 date: 2024-05-15T11:28:30+08:00
 image:
-categories:
-    - neovim
+category: neovim
 tags:
     - alpine
     - C

@@ -3,8 +3,7 @@ title: "使用 IntObs 进行懒加载"
 date: 2024-06-22
 description: 
 slug: "learn_IntObs"
-categories:
-    - Frontend
+category: Frontend
 tags:
     - Vue
     - todo

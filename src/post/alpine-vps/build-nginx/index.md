@@ -5,8 +5,7 @@ description: 是时候让我的VPS开始工作了,首当其中的就是http服�
 slug: build-nginx-alpine
 image: nginx_start.png
 series: alpine-vps
-categories:
-    - vps
+category: vps
 tags:
     - alpine
     - nginx

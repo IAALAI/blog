@@ -3,8 +3,7 @@ title: "book reservation list"
 date: 2024-07-13
 description: 预定的书单
 slug: "book-reservation-list"
-categories:
-    - none
+category: 
 ---
 
 ## 深入实践kotlin元编程

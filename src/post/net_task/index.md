@@ -3,8 +3,7 @@ title: "net_task"
 date: 2024-06-22
 description: 网络管控的三驾马车
 slug: "net_task_0"
-categories:
-    - network
+category: network
 tags:
     - todo
 ---

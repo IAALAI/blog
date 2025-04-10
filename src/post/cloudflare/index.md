@@ -4,8 +4,7 @@ description: 点击上方按钮前往Cloudflare专题
 slug: main
 date: 2024-10-02
 lastmod: 2024-10-02
-categories:
-    - cloudflare
+category: cloudflare
 tags:
 ---
 

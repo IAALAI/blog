@@ -3,8 +3,7 @@ title: "代码展示效果优化(旧世遗物)"
 description: "优化此博客的代码展示效果(旧世遗物)"
 date: 2024-05-28
 image:
-categories:
-    - blog
+category: blog
 tags:
 ---
 

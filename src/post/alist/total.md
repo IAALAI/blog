@@ -4,8 +4,7 @@ description: 为`alist`开发一个显示总使用量的功能
 slug: alist-total
 date: 2024-05-11T07:01:11+08:00
 image:
-categories:
-    - alist
+category: alist
 tags:
     - go
     - todo

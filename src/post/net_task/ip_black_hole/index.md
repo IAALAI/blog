@@ -3,8 +3,7 @@ title: "ip black hole"
 date: 2024-07-13
 description: 网络管控之 IP 路由黑洞
 slug: "net_task_ip_black_hole"
-categories:
-    - network
+category: network
 tags:
     - todo
 ---

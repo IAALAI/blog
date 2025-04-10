@@ -4,8 +4,7 @@ description: ofd
 slug: ofd
 date: 2024-08-20
 image: 
-categories:
-    - none
+category: 
 tags:
     - todo
 draft: true

@@ -4,8 +4,7 @@ description: Disks on Mysql Performance
 slug: disks-on-mysql-performance
 date: 2024-05-28
 image:
-categories:
-    - databases
+category: databases
 tags:
     - mysql
     - disk

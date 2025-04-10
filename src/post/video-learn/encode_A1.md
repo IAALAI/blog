@@ -4,8 +4,7 @@ description: "av1"
 slug: de
 date: 2024-09-10
 image:
-categories:
-    - video 
+category: video 
 tags:
     - todo
 draft: true

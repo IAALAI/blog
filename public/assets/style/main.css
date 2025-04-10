@@ -28,7 +28,6 @@ h5,
 h6 {
     padding: 0;
     margin: 0;
-    text-align: center;
 }
 
 img {
@@ -40,12 +39,12 @@ img {
     --color_tag1: orangered;
     --color_tag2: orange;
     --color_tag3: #FFE700;
-    --color_tag4: yellowgreen;
-    --color_tag5: green;
+    --color_tag4: rgb(0, 200, 200);
+    --color_tag5: #FFCDD2;
     --color_tag6: #30BBAA;
-    --color_tag7: #2980B9;
-    --color_tag8: #4545cd;
-    --color_tag9: rgb(200, 13, 200);
+    --color_tag7: #4c9bcf;
+    --color_tag8: #6161eb;
+    --color_tag9: rgb(200, 20, 200);
 }
 
 ul.loopColor {

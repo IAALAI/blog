@@ -4,6 +4,7 @@ permalink: sitemap.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {% for item in collections.all %}
+{% if not item.data.noindex %}
     <url>
         <loc>{{site.full_host}}{{item.page.url}}</loc>
         <lastmod>
@@ -14,5 +15,6 @@ permalink: sitemap.xml
             {% endif %}
         </lastmod>
     </url>
+{% endif %}
 {% endfor %}
 </urlset>

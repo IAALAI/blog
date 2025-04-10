@@ -8,7 +8,11 @@ permalink: "/categories/{{value.title}}.html"
 ---
 <h1>{{value.title}}</h1>
 
-{% for item in collection.cetegories[value] %}
+{% for item in collections.cetegories %}
+    {{ item }}
+{% endfor %}
+
+{% for item in collections.cetegories %}
     <li>
         <a href="{{item.data.permalink}}">
             <div class="title">{{item.data.title}}</div>

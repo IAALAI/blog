@@ -3,8 +3,7 @@ title: "umami"
 description: "独立部署umami"
 date: 2024-09-23
 image:
-categories:
-    - none
+category: 
 tags:
     - web-analytics
 ---
