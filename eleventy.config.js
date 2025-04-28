@@ -18,7 +18,9 @@ export default function (eleventyConfig) {
 	});
   
     eleventyConfig.addCollection("posts",(collectionsApi) => {
-        const posts = collectionsApi.getAll().filter(value => value.filePathStem.indexOf("/post/") == 0),
+        const posts = collectionsApi.getAll()
+                .filter(value => value.filePathStem.indexOf("/post/") == 0)
+                .sort((a,b) => a.date - b.date),
             _posts_ = []
         for(let i = 0; i < posts.length; i++) {
             _posts_.push({
