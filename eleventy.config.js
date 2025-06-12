@@ -7,7 +7,6 @@ const days_p = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({
         "public" : "/",
-
         "src/post": "/post"
     });
     eleventyConfig.addPreprocessor("drafts", "md", (data, content) => {
@@ -108,8 +107,9 @@ export default function (eleventyConfig) {
     return {
         dir: {
             input: "src",
-            data: "_data",
-            layouts: "_includes/layouts",
+            data: "../data",
+            includes: "../includes",
+            layouts: "../layouts",
             output: "dist"
         },
         markdownTemplateEngine: "njk",

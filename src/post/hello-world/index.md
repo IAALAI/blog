@@ -3,7 +3,6 @@ title: Hello World
 description: init 
 slug: init
 date: 2024-04-22
-lastmod: 2024-10-02
 image: cover.jpg
 category: 
 tags:

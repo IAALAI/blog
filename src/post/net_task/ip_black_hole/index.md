@@ -6,6 +6,7 @@ slug: "net_task_ip_black_hole"
 category: network
 tags:
     - todo
+draft: true
 ---
 # 网络管控之 IP 路由黑洞
 

@@ -2,7 +2,19 @@
 layout: base.njk
 permalink: 404.html
 analytics: false
+noindex: true
 ---
+<main>
 <h1>404 not found</h1>
+<span>页面未找到,相关资源不存在</span>
+<span>page not found,resource does not exist.</span>
+</main>
 
-页面未找到,相关资源不存在
+<style>
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: 2.5;
+    }
+</style>

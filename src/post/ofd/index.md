@@ -12,6 +12,8 @@ draft: true
 
 最近遇到了一个工作上的问题.最近在工作的时候遇到了一个叫ofd的东西,信创出来的新需求
 
-参考资料: [发改委ofd文件规范](https://fgw.sh.gov.cn/cmsres/7f/7f6205045ebf44378d3d7c516aeac7c5/df520868876b9a9d52c1bb34f4bbca97.pdf)
+## 参考资料
+
+1. [信息技术 OFD档案应用指南 GB/T 42133-2022](https://fgw.sh.gov.cn/cmsres/7f/7f6205045ebf44378d3d7c516aeac7c5/df520868876b9a9d52c1bb34f4bbca97.pdf) 国家市场监督管理总局 国家标准化管理委员会
 
 这个玩意整体上就是对着 `pdf` 一通抄,因此首先考虑的处理办法就是将其转换为 `pdf` 然后调换浏览器内置的渲染

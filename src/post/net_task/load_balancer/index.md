@@ -6,6 +6,7 @@ slug: "locak_balancer"
 category: network
 tags:
     - todo
+draft: true
 ---
 # 多网卡下的负载均衡
 

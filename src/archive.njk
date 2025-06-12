@@ -1,27 +1,36 @@
 ---
 layout: home.njk
 ---
-<h1>archive</h1>
 
-共有 {{ collections.archive.length }} 期
+<div class="title">
+    <h1>archive</h1>
+    <span>共有 {{ collections.archive.length }} 期</span>
+</div>
+
 
 {% for item in collections.archive %}
     <div>
-        <h3 id="{{ item.year }}_{{ item.month }}">{{ item.year }}年{{ item.month }}月</h3>
-        <div>
-            共有 {{ item.value.length }} 篇
+        <div class="title">
+            <h3 id="{{ item.year }}_{{ item.month }}">{{ item.year }}年{{ item.month }}月</h3>
+            <div>
+                共有 {{ item.value.length }} 篇
+            </div>
         </div>
         <ul>
             <li>
                 {% for post in item.value %}
-                    <div style="display: flex;justify-content: space-between;">
-                        <span>{{ post.data.title}}</span>
-                        <span> {{ post.date.getFullYear() }} / {{ post.date.getMonth() + 1 }}</span>
-                    </div>
+                    <a href="{{ post.page.url }}">
+                        <div style="display: flex;justify-content: space-between;">
+                            <span>{{ post.data.title}}</span>
+                            <span> {{ post.date.getFullYear() }} - {{ post.date.getMonth() + 1 }} - {{ post.date.getDate() }}</span>
+                        </div>
+                    </a>
                 {% endfor %}
             </li>
         </ul>
     </div>
 {% endfor %}
 
-<div style="height: 2000px;"></div>
+<style>
+
+</style>

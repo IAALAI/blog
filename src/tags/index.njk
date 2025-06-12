@@ -1,18 +1,22 @@
 ---
 layout: home.njk
 ---
-
-查看所有的tags
-
-<div>
-    tags:
+<div class="title">
+    <h1>查看所有的tags</h1>
+    <span></span>
 </div>
+
 
 <ul class="loopColor">
     {% for item in collections.tags %}
         <li>
             <a href="./{{item.key}}">
-                {{item.key}} : {{item.value}}</li>
+                {{item.key}} : {{item.value}}
             </a>
+        </li>
     {% endfor %}
 </ul>
+
+<style>
+
+</style>

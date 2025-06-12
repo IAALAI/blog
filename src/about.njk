@@ -1,58 +1,51 @@
 ---
 layout: home.njk
 ---
-<main>
-    <div class="me">
-        <h2>关于我 </h2>
-        <div>
-            我是 IAALAI,一个普通的软件开发者...技术范围主要以前端vue为主,简单使用过其他的一些后端技术
-            <br>
-            平时是一个宅男,没事就宅在家里看看动漫
-        </div>
+<div class="me">
+    <h2>关于我 </h2>
+    <div>
+        我是 IAALAI,一个普通的软件开发者...技术范围主要以前端vue为主,简单使用过其他的一些后端技术
+        <br>
+        平时是一个宅男,没事就宅在家里看看动漫
     </div>
-    <div class="site">
-        <h2>关于本站</h2>
-        <div>我的 blog ,随便记录一点什么吧</div>
-    </div>
-    <div class="contact">
-        <h2>联系我</h2>
-        <div>你可以在以下平台中找到我:</div>
-        <ul class="findme">
-            <li>
-                <a href="//github.com/iaalai">
-                    <img src="/assets/image/github.svg" alt="github">
-                </a>
-            </li>
-            <li>
-                <a href="mailto:iaalai@iaalai.cn">
-                    <img src="/assets/image/mail.svg" alt="mail">
-                </a>
-            </li>
-        </ul>
-    </div>
-</main>
+</div>
+<div class="site">
+    <h2>关于本站</h2>
+    <div>我的 blog ,随便记录一点什么吧</div>
+</div>
+<div class="contact">
+    <h2>联系我</h2>
+    <div>你可以在以下平台中找到我:</div>
+    <ul class="findme">
+        <li>
+            <a href="//github.com/iaalai">
+                <img src="/assets/image/github.svg" alt="github">
+            </a>
+        </li>
+        <li>
+            <a href="mailto:iaalai@iaalai.cn">
+                <img src="/assets/image/mail.svg" alt="mail">
+            </a>
+        </li>
+    </ul>
+</div>
 
 <style>
-    main {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        line-height: 2;
-        & h2 {
-            color: #7ee777;
-        }
-        & > div > * {
-            text-align: left;
-        }
+    h2 {
+        color: #7ee777;
+        line-height: 2.5em;
     }
 
-    .contact {
+    div>* {
+        text-align: left;
     }
+
+    .contact {}
 
     .findme {
         display: flex;
         gap: 1em;
+
         & img {
             height: 128px;
         }

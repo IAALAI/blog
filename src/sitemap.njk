@@ -1,5 +1,6 @@
 ---
 permalink: sitemap.xml
+noindex: true
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -7,13 +8,7 @@ permalink: sitemap.xml
 {% if not item.data.noindex %}
     <url>
         <loc>{{site.full_host}}{{item.page.url}}</loc>
-        <lastmod>
-            {% if item and item.data and item.data.last %}
-                {{ item.data.last.toISOString() }}
-            {% else %}
-                {{ build.date.toISOString() }}
-            {% endif %}
-        </lastmod>
+        <lastmod>{{ build.date.toISOString()}}</lastmod>
     </url>
 {% endif %}
 {% endfor %}
