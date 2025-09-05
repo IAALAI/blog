@@ -37,7 +37,7 @@ tags:
 
 老实说,这件事我总感觉早有预感.从此前`alist`项目莫名其妙在`github`上被删除,我就感觉不对劲.当时还说出来到底是什么原因,但是现在看来,恐怕那个时候`alist`边上已经易主了
 
-![alist](https://cdn.jsdelivr.net/gh/alist-org/logo@main/logo.svg)
+![alist](https://cdn.jsdelivr.net/gh/alist-org/logo@main/logo.svg){height=300}
 
 ## 结语
 

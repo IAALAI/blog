@@ -728,14 +728,14 @@ document.querySelectorAll("code").forEach(async element => {
             },
         });
 
-async function updateEditorHeight() { 
-var lineHeight = editor.getOption(monaco.editor.EditorOption.lineHeight);
-var lineCount = editor.getModel().getLineCount();
-const height = lineHeight * (lineCount + 1) + 'px';
-element.style.height  = height;
-editor.layout();
-editor.token
-}
+        async function updateEditorHeight() {
+            var lineHeight = editor.getOption(monaco.editor.EditorOption.lineHeight);
+            var lineCount = editor.getModel().getLineCount();
+            const height = lineHeight * (lineCount + 1) + 'px';
+            element.style.height = height;
+            editor.layout();
+            editor.token
+        }
 
         updateEditorHeight();
         editor.onDidChangeModelContent(updateEditorHeight);

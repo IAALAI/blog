@@ -4,7 +4,7 @@ description: 将`bilibili-API-collect` 改写为`swagger3`风格的yaml
 slug: bili_api_0
 date: 2024-05-06T07:01:11+08:00
 image:
-category: 
+category:
 tags:
     - swagger
     - api
