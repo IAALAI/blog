@@ -1,4 +1,5 @@
 ---
+title: welcome
 layout: home.njk
 description: iaalai的博客,随便记录一点看到的东西吧.快来看看都有什么东西吧.一个普通的程序员,主力是前端,但是对于其他领域也稍有了解,是一个动漫爱好者.
 ---
@@ -6,7 +7,6 @@ description: iaalai的博客,随便记录一点看到的东西吧.快来看看�
     <h1>欢迎来到我的博客!!!</h1>
     <div>目前这个博客还处于开发中,仍处于启动阶段</div>
     <div>现在是基于11ty,基本上大部分内容都是手写实现了</div>
-
     <h2>近期内容</h2>
     {% for item in collections.posts.splice(-5).reverse() %}
     <a href="{{ item.page.url }}" style="display: flex;justify-content: space-between;">
@@ -17,7 +17,6 @@ description: iaalai的博客,随便记录一点看到的东西吧.快来看看�
             {{ item.data.date | datep }}
         </div>
     </a>
-
     {% endfor %}
 </main>
 
