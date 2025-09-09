@@ -14,7 +14,8 @@
                 <span>Powered by</span>
                 <ul>
                     <li><a href="//www.11ty.dev/"><img src="/assets/image/11ty.svg" alt="11ty"></a></li>
-                    <li><a href="//www.cloudflare.com"><img src="/assets/image/cloudflare.svg" alt="cloudflare"></a></li>
+                    <li><a href="//www.cloudflare.com"><img src="/assets/image/cloudflare.svg" alt="cloudflare"></a>
+                    </li>
                 </ul>
             </div>
             <div class="linkInfo">
@@ -31,44 +32,8 @@
         </div>
     </div>
 </footer>
-<script async src="/script/analytics.js"></script>
-{% if analytics != false %}
-<script async src="{{build.analyzeHost}}/script.js" data-website-id="{{build.analyzeId}}"></script>
-{% endif %}
-<script defer>
-document.querySelector(".last_up").innerHTML = `last Update: ${new Date(`{{build.date.toISOString()}}`).toLocaleString()}`;
-
-const startDate = new Date(`{{site.start_date}}`);
-function refreshUptime() {
-    const now = new Date();
-    const diff = now - startDate;
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    
-    const uptime = document.querySelector(".up_time")
-    uptime.innerHTML = `Up time: ${days}:${hours}:${minutes}:${seconds}`;
-}
-
-let uptimeInterval = null;
-
-refreshUptime(); // 初始化显示一次
-
-const observer = new IntersectionObserver(entrise => {
-    entrise.forEach(entry => {
-        if (entry.isIntersecting) {
-            if (!uptimeInterval) uptimeInterval = setInterval(refreshUptime, 1000);
-        } else {
-            if (uptimeInterval) {
-                clearInterval(uptimeInterval);
-                uptimeInterval = null;
-            }
-        }
-    })
-})
-observer.observe(document.querySelector("footer"))
-</script>
+<script defer src="/assets/script/analytics.js"></script>
+<script defer src="/assets/script/updateTime.js"></script>
 <style>
     footer {
         background-color: #222;
@@ -110,10 +75,10 @@ observer.observe(document.querySelector("footer"))
                         margin: 0;
                         padding: 0;
 
-                            & img {
-                                height: 64px;
-                                width: 144px;
-                            }
+                        & img {
+                            height: 64px;
+                            width: 144px;
+                        }
                     }
                 }
 

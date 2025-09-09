@@ -6,8 +6,9 @@ const days_p = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy({
-        "public" : "/",
-        "src/post": "/post"
+        "public": "/",
+        "src/assets": "/assets",
+        "src/post": "/post",
     });
     eleventyConfig.addPreprocessor("drafts", "md", (data, content) => {
 		if(data.draft || data.hidden) {
@@ -30,7 +31,7 @@ export default function (eleventyConfig) {
                 raw: posts[i].rawInput
             })
         }
-        fs.writeFileSync("./dist/assets/search.json", JSON.stringify(_posts_, null, 0), 'utf-8');
+        // fs.writeFileSync("./dist/assets/search.json", JSON.stringify(_posts_, null, 0), 'utf-8');
         return posts;
     });
     eleventyConfig.addCollection("archive",(collectionsApi) => {

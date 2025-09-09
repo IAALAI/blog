@@ -1,5 +1,7 @@
 <header>
-    <div class="progress"><div id="progress"></div></div>
+    <div class="progress">
+        <div id="progress"></div>
+    </div>
     <nav>
         <a href="/">
             <div class="site_name">
@@ -8,23 +10,32 @@
         </a>
         <ul class="menu">
             <li>
-                <a href="/search"><div>搜索</div></a>
+                <a href="/search">
+                    <div>搜索</div>
+                </a>
             </li>
             <li>
-                <a href="/categories"><div>分类</div></a>
+                <a href="/categories">
+                    <div>分类</div>
+                </a>
             </li>
             <li>
-                <a href="/tags"><div>标签</div></a>
+                <a href="/tags">
+                    <div>标签</div>
+                </a>
             </li>
             <li>
-                <a href="/archive"><div>归档</div></a>
+                <a href="/archive">
+                    <div>归档</div>
+                </a>
             </li>
             <li>
-                <a href="/about"><div>关于</div></a>
+                <a href="/about">
+                    <div>关于</div>
+                </a>
             </li>
         </ul>
     </nav>
-
     <style>
         nav {
             display: flex;
@@ -32,22 +43,28 @@
             justify-content: space-between;
             padding: 1em 36px;
             background-color: #333;
+
             & h1 {
                 padding: 0 12px;
             }
+
             & ul {
                 display: flex;
                 gap: 2em;
+
                 >li {
                     flex: 1;
+
                     & div {
                         padding: 12px;
                         color: #ccc;
                     }
+
                     & div:hover {
                         color: #7ee777;
                     }
-                    & .active > div {
+
+                    & .active>div {
                         color: white;
                     }
                 }
@@ -67,16 +84,6 @@
             }
         }
     </style>
-
-    <script async>
-        window.addEventListener("scroll", () => {
-            const progress = document.getElementById("progress");
-            progress.style.width = `${(window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100}%`;
-        });
-        document.querySelectorAll(".menu>li>a").forEach(item => {
-            if (location.href.startsWith(item.href)) {
-                item.classList.add("active")
-            }
-        })
-    </script>
+    <script defer src="/assets/script/progressBar.js"></script>
+    <script defer src="/assets/script/activeMenu.js"></script>
 </header>
