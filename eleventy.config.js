@@ -10,38 +10,25 @@ export default function (eleventyConfig) {
         "src/assets": "/assets",
         "src/post": "/post",
     });
+    eleventyConfig.addTemplateFormats(["njs","n.js"]);
+    eleventyConfig.addExtension("njs", { key: "njk" });
+    eleventyConfig.addExtension("n.js", { key: "njk" });
     eleventyConfig.addPreprocessor("drafts", "md", (data, content) => {
 		if(data.draft || data.hidden) {
 			return false;
 		}
-        data.last = fs.statSync(data.page.inputPath).mtime; 
+        data.last = fs.statSync(data.page.inputPath).mtime;
 	});
-  
-    eleventyConfig.addCollection("posts",(collectionsApi) => {
-        const posts = collectionsApi.getAll()
-                .filter(value => value.filePathStem.indexOf("/post/") == 0)
-                .sort((a,b) => a.date - b.date),
-            _posts_ = []
-        for(let i = 0; i < posts.length; i++) {
-            _posts_.push({
-                title: posts[i].data.title,
-                tags: posts[i].data.tags,
-                date: posts[i].date,
-                Stem: posts[i].filePathStem,
-                raw: posts[i].rawInput
-            })
-        }
-        // fs.writeFileSync("./dist/assets/search.json", JSON.stringify(_posts_, null, 0), 'utf-8');
-        return posts;
-    });
     eleventyConfig.addCollection("archive",(collectionsApi) => {
-        const posts = collectionsApi.getAll().filter(value => value.filePathStem.indexOf("/post/") == 0),_archive_ = {};
+        const posts = collectionsApi.getAll()
+            .filter(value => value.filePathStem.indexOf("/post/") == 0)
+            .sort((a,b) => a.date - b.date),
+        _archive_ = {};
         for (let i = 0; i < posts.length; i++) {
             const d = posts[i].date.getFullYear() * 12 + (posts[i].date.getMonth() + 1);
             if (!_archive_[d]) _archive_[d] = [];
             _archive_[d].push(posts[i])
         }
-        
         const archive = [];
         for (const key in _archive_) {
             archive.push({
@@ -54,7 +41,10 @@ export default function (eleventyConfig) {
         return archive;
     });
     eleventyConfig.addCollection("tags",(collectionsApi) => {
-        const posts = collectionsApi.getAll().filter(value => value.filePathStem.indexOf("/post/") == 0),_tags_ = {};
+        const posts = collectionsApi.getAll()
+            .filter(value => value.filePathStem.indexOf("/post/") == 0)
+            .sort((a,b) => a.date - b.date),
+        _tags_ = {};
         for (let i = 0; i < posts.length; i++) {
             if (posts[i].data.tags?.length) {
                 for (const value of posts[i].data.tags) {
@@ -73,8 +63,10 @@ export default function (eleventyConfig) {
         return tags
     });
     eleventyConfig.addCollection("cetegories",(collectionsApi) => {
-        const posts = collectionsApi.getAll().filter(value => value.filePathStem.indexOf("/post/") == 0),
-            cetegories = {};
+        const posts = collectionsApi.getAll()
+            .filter(value => value.filePathStem.indexOf("/post/") == 0)
+            .sort((a,b) => a.date - b.date),
+        cetegories = {};
         for (const v of posts) {
             v.data.category = v.data.category || "none";
             if (!cetegories[v.data.category]) cetegories[v.data.category] = [];
@@ -104,13 +96,12 @@ export default function (eleventyConfig) {
             weak_it = v.getDay();
         return `${Year}-${Month + 1}-${Day} ${Hours}:${Minutes} ${days_p[weak_it]} ${month_p[Month]}`;
     });
-
     return {
         dir: {
-            input: "src",
-            data: "../data",
             includes: "../includes",
             layouts: "../layouts",
+            input: "src",
+            data: "../data",
             output: "dist"
         },
         markdownTemplateEngine: "njk",

@@ -1,4 +1,5 @@
 {
     "layout": "post.njk",
-    "permalink": "{{ page.filePathStem }}.html"
+    "permalink": "{{ page.filePathStem }}.html",
+    "tags": ["posts"]
 }

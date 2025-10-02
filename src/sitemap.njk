@@ -8,7 +8,7 @@ noindex: true
 {% if not item.data.noindex %}
     <url>
         <loc>{{site.full_host}}{{item.page.url}}</loc>
-        <lastmod>{{ build.date.toISOString()}}</lastmod>
+        <lastmod>{{ (item.data.last or build.date).toISOString() }}</lastmod>
     </url>
 {% endif %}
 {% endfor %}

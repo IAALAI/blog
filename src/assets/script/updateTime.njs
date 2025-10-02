@@ -1,5 +1,5 @@
 document.querySelector(".last_up").innerHTML = `last Update: ${new Date(`{{build.date.toISOString()}}`).toLocaleString()}`;
-
+// document.querySelector(".pages_count").innerHTML = `total posts: {{ collections.posts.length }}`
 const startDate = new Date(`{{site.start_date}}`);
 function refreshUptime() {
     const now = new Date();

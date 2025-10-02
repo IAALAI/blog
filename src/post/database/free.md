@@ -19,6 +19,7 @@ draft: true
 | Postgre | [Xata](https://xata.io/) | 15GB |  |
 | Postgre | [supabase](https://supabase.com/) | 0.5GB and 5G net to 2 node | 整体表现不错,唯一的缺点是只有ipv6可以直连,ipv4需要连接池 |
 | MySQL,Postgre,* | [aiven](https://aiven.io/) | 1GB,1GB,* | 超时关闭,但是整体还是比较给力的,提供多种服务 |
+| Postgre | [koyeb](https://www.koyeb.com/) | 1GB | 限制计算时长 |
 
 ### mongodb
 
