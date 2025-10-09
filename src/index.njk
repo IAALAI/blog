@@ -8,7 +8,7 @@ description: iaalai的博客,随便记录一点看到的东西吧.快来看看�
     <div>目前这个博客还处于开发中,仍处于启动阶段</div>
     <div>现在是基于11ty,基本上大部分内容都是手写实现了</div>
     <h2>近期内容</h2>
-    {% for item in collections.posts.splice(-5).reverse() %}
+    {% for item in collections.posts.slice(-5).reverse() %}
     <a href="{{ item.page.url }}" style="display: flex;justify-content: space-between;">
         <div title="{{ item.data.description }}">
             {{ item.data.title }}
