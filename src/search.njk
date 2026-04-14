@@ -2,7 +2,9 @@
 layout: base.njk
 permalink: search.html
 ---
-<link rel="preload" href="/assets/search.json" as="fetch">
+<link rel="preload" href="/index.json" as="fetch">
+
+<h1>该页面还未实现...</h1>
 
 <script async type="module">
 fetch("/assets/search.json").then(res => res.json()).then(data => console.log(data));

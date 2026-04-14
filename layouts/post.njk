@@ -1,0 +1,25 @@
+---
+layout: base.njk
+---
+<div class="post">
+<aside>
+</aside>
+<main>
+    <h1>{{ title }}</h1>
+    <hr/>
+    <div class="info">
+        {% if description %}
+            <div class="desc"><h2>{{ description }}</h2></div>
+        {% endif %}
+        <div>文章创建时间: {{ date | datep }}</div> <div>最后更新时间: {{ last | datep }}</div>
+        <div>文章总字数: {{ content | text | size }},预计阅读时间需要: {{ (content | text | size / 100) | math("ceil") }} 分钟</div>
+    </div>
+    <hr/>
+    <div>
+        {{ content | safe }}
+    </div>
+</main>
+</div>
+
+
+<link rel="stylesheet" href="/assets/style/post.css">

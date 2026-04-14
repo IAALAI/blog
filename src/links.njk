@@ -1,0 +1,52 @@
+---
+layout: home.njk
+permalink: links.html
+---
+<h1>
+    友情链接
+</h1>
+
+<div class="link_list">
+    {% for link in links %}
+        <a href="{{ link.url }}" title="{{ link.desc }}">
+            <div class="link_item">
+                <img src="{{ link.icon }}" alt="">
+                <div>
+                    <div class="name">
+                        <h3>{{ link.name }}</h3>
+                    </div>
+                    <div class="desc">{{ link.desc }}</div>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</div>
+
+<div class="info">
+    我的小伙伴们
+</div>
+
+<style>
+.link_list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 16px 0;
+    & .link_item {
+        flex: 1;
+        display: flex;
+        gap: 10px;
+        & > img {
+            height: 72px;
+            width: 72px;
+            margin: 10px;
+        }
+        & > div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+}
+</style>

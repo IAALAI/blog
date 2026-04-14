@@ -4,8 +4,7 @@ date: 2024-06-12
 description: 最近看到群友推荐一个不错的路由器就搞回来研究研究
 slug: "jdc_ax1800_op"
 # image: router.png
-categories:
-    - openwrt
+category: openwrt
 tags:
 ---
 

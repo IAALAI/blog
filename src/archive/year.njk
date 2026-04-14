@@ -1,0 +1,40 @@
+---
+layout: home.njk
+pagination:
+    data: collections.archive
+    size: 1
+    alias: item
+    addAllPagesToCollections: true
+permalink: "/archive/{{ item._id_ }}.html"
+eleventyComputed:
+    title: "archive - {{ item._id_ }}"
+---
+
+<div>
+    <h1 title="一共有{{item.flat().length}}篇文章">{{ item._id_ }}年 文章归档</h1>
+    <span>一共 {{item.flat().length}} 篇文章</span>
+</div>
+
+<div>
+{% for month in item %}
+    <h3 id="{{month._id_}}" class="title" title="一共有{{month.length}}篇文章">
+        <div>{{month._id_}}月</div>
+    </h3>
+    <ul>
+        <li>
+            {% for post in month %}
+                <a href="{{ post.page.url }}">
+                    <div style="display: flex;justify-content: space-between;" title="{{ post.data.description}}">
+                        <span>{{ post.data.title}}</span>
+                        <span> {{ post.date.getFullYear() }}-{{ post.date.getMonth() + 1 }}-{{ post.date.getDate() }}</span>
+                    </div>
+                </a>
+            {% endfor %}
+        </li>
+    </ul>
+{% endfor %}
+</div>
+
+<style>
+
+</style>

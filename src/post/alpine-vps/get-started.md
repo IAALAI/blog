@@ -1,11 +1,9 @@
 ---
 title: "将VPS的系统切换为alpine"
 description: 将性能较差的VPS切换为alpine,提高使用体验
-slug: get-started-alpine
 date: 2024-05-15T11:28:00+08:00
 image:
-categories:
-    - vps
+category: tvbox
 tags:
     - alpine
     - grub
@@ -14,7 +12,7 @@ tags:
 
 最近搞来了一家低价的VPS,综合配置似乎还算可以
 
-> 1和1G,25GB SSD,1TB流量,1Gbps带宽
+> 1核1G,25GB SSD,1TB流量,100Mbps带宽
 
 但是商家预装的系统似乎有后台,带一个监控程序而且占用还不低
 
@@ -61,4 +59,5 @@ curl https://raw.githubusercontent.com/bin456789/reinstall/main/reinstall.sh | b
 
 重装完系统是时候先为其准备一些工具了
 
-> [在alpine中编译 `neovim`](/p/neovim-for-alpine)
+> [在alpine中编译 `neovim`](./build-neovim/)
+> [在alpine中编译 `nginx`](./build-nginx/)

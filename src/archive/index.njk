@@ -1,1 +1,40 @@
-archive
+---
+title: archive
+layout: home.njk
+---
+
+<div class="title">
+    <h1>archive</h1>
+    <h3>
+        <p>共有 {{collections.posts.length}} 篇文章</p>
+    </h>
+</div>
+
+{% for year in collections.archive %}
+{% for month in year %}
+<div>
+    <a href="./{{ year._id_}}#{{ month._id_ }}">
+        <div class="title">
+            <h3 title="{{ year._id_ }}_{{ month._id_ }}">{{ year._id_ }}年{{ month._id_ }}月</h3>
+            <div>共有 {{ month.length }} 篇</div>
+        </div>
+    </a>
+    <ul>
+        <li>
+            {% for post in month %}
+                <a href="{{ post.page.url }}">
+                    <div style="display: flex;justify-content: space-between;" title="{{ post.data.description}}">
+                        <span>{{ post.data.title}}</span>
+                        <span> {{ post.date.getFullYear() }}-{{ post.date.getMonth() + 1 }}-{{ post.date.getDate() }}</span>
+                    </div>
+                </a>
+            {% endfor %}
+        </li>
+    </ul>
+</div>
+{% endfor %}
+{% endfor %}
+
+<style>
+
+</style>

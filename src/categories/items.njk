@@ -1,10 +1,23 @@
 ---
 layout: "home.njk"
 pagination:
-    data: categories.content
+    data: categories
     size: 1
     alias: value
+    addAllPagesToCollections: true
 permalink: "/categories/{{value.title}}.html"
 ---
 <h1>{{value.title}}</h1>
 
+{% for item in collections.cetegories %}
+    {{ item }}
+{% endfor %}
+
+{% for item in collections.cetegories %}
+    <li>
+        <a href="{{item.data.permalink}}">
+            <div class="title">{{item.data.title}}</div>
+            <div class="desc">{{item.data.description}}</div>
+        </a>
+    </li>
+{% endfor %}

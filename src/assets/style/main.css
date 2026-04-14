@@ -1,0 +1,64 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    background: #333;
+    color: white;
+    font-family: "Consolas", "Open Sans","PingFang SC","Hiragino Sans GB","Microsoft Yahei","WenQuanYi Micro Hei","Segoe UI Emoji","Segoe UI Symbol",Helvetica,Arial,-apple-system,system-ui,sans-serif;
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    height: auto;
+}
+
+:root {
+    --color_tag0: red;
+    --color_tag1: orangered;
+    --color_tag2: orange;
+    --color_tag3: #FFE700;
+    --color_tag4: rgb(0, 200, 200);
+    --color_tag5: #FFCDD2;
+    --color_tag6: #30BBAA;
+    --color_tag7: #4c9bcf;
+    --color_tag8: #6161eb;
+    --color_tag9: rgb(200, 20, 200);
+}
+
+ul.loopColor {
+    & li:nth-child(10n+0) { color: var(--color_tag0);}
+    & li:nth-child(10n+1) { color: var(--color_tag1);}
+    & li:nth-child(10n+2) { color: var(--color_tag2);}
+    & li:nth-child(10n+3) { color: var(--color_tag3);}
+    & li:nth-child(10n+4) { color: var(--color_tag4);}
+    & li:nth-child(10n+5) { color: var(--color_tag5);}
+    & li:nth-child(10n+6) { color: var(--color_tag6);}
+    & li:nth-child(10n+7) { color: var(--color_tag7);}
+    & li:nth-child(10n+8) { color: var(--color_tag8);}
+    & li:nth-child(10n+9) { color: var(--color_tag9);}
+}
