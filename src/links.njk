@@ -10,7 +10,7 @@ permalink: links.html
     {% for link in links %}
         <a href="{{ link.url }}" title="{{ link.desc }}">
             <div class="link_item">
-                <img src="{{ link.icon }}" alt="">
+                <img src="http://r.iaalai.cn/blog/links/{{ link.id }}.avif" alt="">
                 <div>
                     <div class="name">
                         <h3>{{ link.name }}</h3>
@@ -37,9 +37,9 @@ permalink: links.html
         display: flex;
         gap: 10px;
         & > img {
-            height: 72px;
-            width: 72px;
-            margin: 10px;
+            height: 80px;
+            width: 80px;
+            margin: 2px;
         }
         & > div {
             flex: 1;

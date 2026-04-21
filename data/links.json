@@ -1,9 +1,17 @@
 [
     {
+        "id": 0,
         "name": "EvLast 资源小站",
         "url": "https://01.jxoj.top/",
         "icon": "https://avatars.githubusercontent.com/u/143036993?v=4",
         "desc": "键盘敲烂,年入百万",
+        "joined": "2025-11-17"
+    },{
+        "id": 1,
+        "name": "初之音",
+        "url": "https://www.himiku.com/",
+        "icon": "https://avatars.githubusercontent.com/u/143036993?v=4",
+        "desc": "聆听心中最初的声音",
         "joined": "2025-11-17"
     }
 ]

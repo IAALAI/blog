@@ -8,11 +8,12 @@ pagination:
 permalink: "/archive/{{ item._id_ }}.html"
 eleventyComputed:
     title: "archive - {{ item._id_ }}"
+    count: "{{ item.flat().length }}"
 ---
 
 <div>
-    <h1 title="一共有{{item.flat().length}}篇文章">{{ item._id_ }}年 文章归档</h1>
-    <span>一共 {{item.flat().length}} 篇文章</span>
+    <h1 title="一共有{{ count }}篇文章">{{ item._id_ }}年 文章归档</h1>
+    <span>一共 {{ count }} 篇文章</span>
 </div>
 
 <div>

@@ -11,17 +11,17 @@ layout: home.njk
 </div>
 
 {% for year in collections.archive %}
-{% for month in year %}
+{% for items in year %}
 <div>
-    <a href="./{{ year._id_}}#{{ month._id_ }}">
+    <a href="./{{items.year}}#{{ items.month }}">
         <div class="title">
-            <h3 title="{{ year._id_ }}_{{ month._id_ }}">{{ year._id_ }}年{{ month._id_ }}月</h3>
-            <div>共有 {{ month.length }} 篇</div>
+            <h3 title="{{ items.year }}_{{ items.month }}">{{ items.year }}年{{ items.month }}月</h3>
+            <div>共有 {{ items.length }} 篇</div>
         </div>
     </a>
     <ul>
         <li>
-            {% for post in month %}
+            {% for post in items %}
                 <a href="{{ post.page.url }}">
                     <div style="display: flex;justify-content: space-between;" title="{{ post.data.description}}">
                         <span>{{ post.data.title}}</span>
