@@ -12,7 +12,7 @@ layout: base.njk
             <div class="desc"><h2>{{ description }}</h2></div>
         {% endif %}
         <div>文章创建时间: {{ date | datep }}</div>
-        <div>文章总字数: {{ content | text | size }},预计阅读时间需要: {{ (content | text | size / 100) | math("ceil") }} 分钟</div>
+        <div>文章总字数: {{ content | text | size }},预计阅读时间需要: {{ (content | text | size / 200) | math("ceil") }} 分钟</div>
     </div>
     <hr/>
     <div>

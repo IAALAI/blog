@@ -6,12 +6,13 @@ image:
 tags:
     - immich
     - media
-draft: true
 ---
 
 ## immich
 
 immich,是知名的开源图片管理组件,其内置强大的深度学习搜索等功能,看起来很厉害,准备入手尝试尝试
+
+扩展我的媒体库计划的一部分
 
 ## start
 
@@ -47,39 +48,51 @@ UPLOAD_LOCATION=./library
 # 这里就是你的数据库文件会保存的目录.当然,使用外部网络的数据库,这个参数就不需要了
 DB_DATA_LOCATION=./postgres
 
-# To set a timezone, uncomment the next line and change Etc/UTC to a TZ identifier from this list: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
+# 设置时区：取消下一行的注释，并将 Etc/UTC 替换为你需要的时区标识，时区列表见：https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List
 # TZ=Etc/UTC
 
-# The Immich version to use. You can pin this to a specific version like "v2.1.0"
+# Immich 版本号，可以指定为具体版本，比如 "v2.1.0"
 IMMICH_VERSION=v2
 
-# Connection secret for postgres. You should change it to a random password
-# Please use only the characters `A-Za-z0-9`, without special characters or spaces
-DB_PASSWORD=postgres
-
-# The values below this line do not need to be changed
-###################################################################################
+# 连接上数据库的用户名和数据库名
 DB_USERNAME=postgres
 DB_DATABASE_NAME=immich
+# 连接上 Postgres 数据库的密码
+DB_PASSWORD=postgres
 ```
 
-    Populate UPLOAD_LOCATION with your preferred location for storing backup assets. It should be a new directory on the server with enough free space.
-    Consider changing DB_PASSWORD to a custom value. Postgres is not publicly exposed, so this password is only used for local authentication. To avoid issues with Docker parsing this value, it is best to use only the characters A-Za-z0-9. pwgen is a handy utility for this.
-    Set your timezone by uncommenting the TZ= line.
-    Populate custom database information if necessary.
+3. 启动容器
 
-Step 3 - Start the containers
+在第 1 步创建的目录下（此时应包含你刚刚下载与配置的 `docker-compose.yml` 和 `.env` 文件），运行以下命令以后台方式启动 Immich 服务：
 
-From the directory you created in Step 1 (which should now contain your customized docker-compose.yml and .env files), run the following command to start Immich as a background service:
-Start the containers
-
+``` sh
 docker compose up -d
+```
 
 ## run
 
-整个项目跑起来,还是比较容易的,不过我的数据库是单独选择了配置在网络的数据库
+如果是按照官方教程用docker把这个项目跑起来,还是比较容易的.不过我最开始希望手动部署4个组建,然后直接在服务器运行的.只不过最后卡在了它的深度学习服务,一直都跑不起来.最后只好选择了官方的docker方案...不过数据库最后还是单独手动配置在了docker之外
+
+跑起来之后的效果还是不错的
+
+![immich](https://r.iaalai.cn/blog/immich/full_ui.avif)
 
 ## option
 
 默认的 immich,它的深度学习智能功能是针对英文开发,如果是中文的话,还需要额外的单独配置AI模型
 
+从右上角的 `Administration` 进入,找到 `Machine Learning Settings` 选项,然后是里面的 `Smart Search`,配置其中的 `CLIP model`,建议选择为 `XLM-Roberta-Large-Vit-B-16Plus`,这个模型应该是在中文环境下表现很出色的模型了
+
+![set_model](https://r.iaalai.cn/blog/immich/set_model.avif)
+
+对了,下载模型,需要可观的网络环境.这个记得自行提前准备.
+
+## forgot passwd
+
+写这篇文章的时候,距离最开始部署 `immich` 已经过去了一周了...没想到才一周就给忘了最开始随便乱写的用户名和密码...
+
+关于找回用户名,可以直接进数据库里面看,然后密码可以参考以下代码进行重置:
+
+``` sh
+docker exec -it immich_server immich-admin reset-admin-password
+```
