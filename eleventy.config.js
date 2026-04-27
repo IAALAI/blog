@@ -17,7 +17,6 @@ export default function (eleventyConfig) {
 		if(data.draft || data.hidden) {
 			return false;
 		}
-        data.last = fs.statSync(data.page.inputPath).mtime;
 	});
     eleventyConfig.addCollection("archive",(collectionsApi) => {
         const posts = collectionsApi.getAll()
