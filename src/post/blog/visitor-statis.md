@@ -18,7 +18,7 @@ tags:
 
 我的想法便是由 nginx 直接反向代理 umami,然后单独再定义一个路径来反代到 umami 上,请求回到 umami 的时候再携带 token 以获取数据即可
 
-``` shell
+``` conf
 location /api/websites {
     add_header Cache-Control "public, max-age=3600";
 
