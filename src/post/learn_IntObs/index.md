@@ -5,7 +5,7 @@ description:
 slug: "learn_Intersection_Observer"
 category: Frontend
 tags:
-    - JavaScript
+    - javascript
 ---
 
 ## 起因

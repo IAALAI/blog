@@ -3,10 +3,11 @@ title: all tags
 layout: home.njk
 ---
 <div class="title">
-    <h1>查看所有的tags</h1>
-    <span></span>
+    <h1>查看所有的 tags </h1>
+    <span>{{collections.tags.length}}</span>
 </div>
 
+<h3>目前总共有 {{collections.tags.length}} 个 tags</h3>
 
 <ul class="loopColor">
     {% for item in collections.tags %}

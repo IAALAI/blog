@@ -104,6 +104,16 @@ export default function (eleventyConfig) {
             weak_it = v.getDay();
         return `${Year}-${Month + 1}-${Day} ${Hours}:${Minutes} ${days_p[weak_it]} ${month_p[Month]}`;
     });
+    eleventyConfig.addNunjucksFilter("suffix",function (v = "") {
+        const index = "index.html", h_suffix = ".html";
+        if (v.lastIndexOf(index) == v.length - index.length) {
+            return v.replace(index, "");
+        }
+        if (v.lastIndexOf(h_suffix) == v.length - h_suffix.length) {
+            return v.replace(h_suffix, "");
+        }
+        return v;
+    });
     return {
         dir: {
             includes: "../includes",

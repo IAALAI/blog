@@ -6,20 +6,27 @@ description: iaalai的博客,随便记录一点看到的东西吧.快来看看�
 <main>
     <h1>欢迎来到我的博客!!!</h1>
     <div>目前这个博客还处于开发中</div>
-    <div>本基于11ty实现</div>
+    <div>本博客基于11ty实现</div>
     <h2>近期内容</h2>
-    {% for item in collections.posts.slice(-5).reverse() %}
-    <a href="{{ item.page.url }}" style="display: flex;justify-content: space-between;">
-        <div title="{{ item.data.description }}">
-            {{ item.data.title }}
-        </div>
+    <ul>
+        {% for item in collections.posts.slice(-20).reverse() %}
+        <li style="line-height: 2.5;">
+            <a href="{{ item.page.url }}" style="display: flex;justify-content: space-between;">
+                <div title="{{ item.data.description }}">
+                    {{ item.data.title }}
+                </div>
+                <div>
+                    {{ item.data.date | datep }}
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/archive">
         <div>
-            {{ item.data.date | datep }}
+            <h2>
+                查看更多内容?点我查看所有
+            </h2>
         </div>
     </a>
-    {% endfor %}
 </main>
-
-<style>
-
-</style>

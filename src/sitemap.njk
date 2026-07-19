@@ -7,7 +7,7 @@ noindex: true
 {% for item in collections.all %}
 {% if not item.data.noindex %}
     <url>
-        <loc>{{site.full_host}}{{item.page.url}}</loc>
+        <loc>{{site.full_host}}{{item.page.url | suffix}}</loc>
         <lastmod>{{ (item.data.last or build.date).toISOString() }}</lastmod>
     </url>
 {% endif %}

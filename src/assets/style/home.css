@@ -88,6 +88,9 @@
 
                 & li {
                     padding: 8px 0 8px 0;
+                    > a {
+                        display: block;
+                    }
                 }
 
                 & li:hover {
@@ -130,7 +133,7 @@
         padding: 1.5em 1em;
         background-color: #222;
         border-radius: 15px;
-        line-height: 2em;
+        line-height: 2;
 
         .title {
             display: flex;

@@ -7,9 +7,11 @@ image:
 category: neovim
 tags:
     - alpine
-    - C
+    - c
     - build
     - neovim
+    - linux
+draft: true
 ---
 
 > 本文主要介绍如何在 alpine 中编译 neovim

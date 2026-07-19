@@ -6,7 +6,8 @@ date: 2025-09-05
 image: cert.png
 category:
 tags:
-    - 
+    - linux
+    - ubuntu
 ---
 
 [书接上文](./) 在linux(ubuntu)中使用自签发的CA出现意料之外问题
