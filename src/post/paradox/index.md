@@ -5,8 +5,7 @@ date: 2026-04-15
 image:
 category: paradox
 tags:
-    game
-draft: true
+    - game
 ---
 
 ## start
@@ -21,11 +20,16 @@ draft: true
 
 现在倒是把主线几个都打了一轮
 
-这个逆天P社,全家游戏全部都是时间杀手!!!个个都跟文明6一样
+这个逆天P社,全家游戏全部都是时间杀手!!!个个都跟文明6一样,超级耗时间
 
 ## Age of Wonders 4
 
+奇迹时代,我的P社入坑作了.
+
 ## Crusader Kings 3
+
+模拟中世纪的
+
 
 ## Victoria 3
 
